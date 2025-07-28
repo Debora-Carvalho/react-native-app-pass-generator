@@ -1,9 +1,9 @@
 import React from "react";
 import {View, Text} from "react-native";
-import { StatusBar } from 'expo-status-bar';
 import styles from './HomeStyles';
+import { StatusBar } from 'expo-status-bar';
 import { BatLogo } from "../../components/BatLogo/BatLogo";
-import { BatTextInput } from "../../components/BatTextInput/BatTextInput";
+import { BatButton } from "../../components/BatButton/BatButton";
 
 export default function Home() {
     return (
@@ -12,12 +12,11 @@ export default function Home() {
                 <BatLogo />
             </View>
 
-            <View>
-                <BatTextInput />
+            <View style={styles.inputContainer}>
+                <BatButton />
             </View>
 
-            <Text>Sim. Com o tema do Batman. </Text>
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
         </View>
     );
 };
