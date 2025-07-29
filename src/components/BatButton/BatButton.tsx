@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, Pressable } from 'react-native';
 
 import { styles } from './BatButtonStyles';
 import { BatTextInput } from '../BatTextInput/BatTextInput';
+import generatePass from '../../services/passwordService';
 
 export function BatButton() {
-  return (
-    <>
-        <BatTextInput />
+    const [pass, setPass] = useState('');
 
-        <Pressable onPress={() => {console.log('teste')}} style={styles.button}>
+    function handleGenerateButton () {
+        let generateToken = generatePass()
+        setPass(generateToken)
+    }
+
+    return (
+    <>
+        <BatTextInput pass={pass} />
+
+        <Pressable onPress={handleGenerateButton} style={styles.button}>
             <Text style={styles.text}>GENERATE</Text>
         </Pressable>
 
@@ -17,5 +25,5 @@ export function BatButton() {
             <Text style={styles.text}>✨ COPY</Text>
         </Pressable>
     </>
-  );
+    );
 }
